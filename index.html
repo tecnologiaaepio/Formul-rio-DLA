@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Solicitação - Rádio DLA NB</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="Aépio Logo">
+        </div>
+        <h1>Formulário de Solicitação</h1>
+        
+        <form id="formulario">
+            <div class="form-group">
+                <label>Nome do Cliente:</label>
+                <input type="text" id="nomeCliente" class="form-select" required>
+            </div>
+
+            <div class="section-title">Tipo de Medidor / Protocolo</div>
+
+            <!-- DLA NB - Gás (sem medidor) -->
+            <div class="produto-card">
+                <div class="produto-header">
+                    <label class="checkbox-label">
+                        <input type="radio" id="dlaNbGas" name="produto" value="DLA NB - Gás">
+                        <span class="produto-titulo">DLA NB — Gás</span>
+                        
+                    </label>
+                </div>
+                <p class="produto-desc">Somente rádio DLA NB para gás (sem medidor)</p>
+                <div class="form-group" id="qtdDlaNbGas" style="display: none;">
+                    <label>Quantidade:</label>
+                    <input type="number" class="form-select" min="0" value="0">
+                </div>
+            </div>
+
+            <!-- DLA NB - Gás com Medidor -->
+            <div class="produto-card">
+                <div class="produto-header">
+                    <label class="checkbox-label">
+                        <input type="radio" id="dlaNbGasMedidor" name="produto" value="DLA NB - Gás com Medidor">
+                        <span class="produto-titulo">DLA NB — Gás com Medidor</span>
+                        
+                    </label>
+                </div>
+                <p class="produto-desc">Rádio DLA NB + medidor de gás</p>
+                <div id="opcoesGasMedidor" style="display: none;">
+                    <div class="form-group">
+                        <label>Modelo:</label>
+                        <div class="checkbox-container">
+                            <label class="checkbox-label"><input type="checkbox" name="modeloGasMedidor" value="G1.0"> G1.0</label>
+                            <label class="checkbox-label"><input type="checkbox" name="modeloGasMedidor" value="G1.6"> G1.6</label>
+                            <label class="checkbox-label"><input type="checkbox" name="modeloGasMedidor" value="G2.5"> G2.5</label>
+                            <label class="checkbox-label"><input type="checkbox" name="modeloGasMedidor" value="G4.0"> G4.0</label>
+                            <label class="checkbox-label"><input type="checkbox" name="modeloGasMedidor" value="G6.0"> G6.0</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Quantidade:</label>
+                        <input type="number" class="form-select" min="0" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- DLA NB - Água (sem medidor) -->
+            <div class="produto-card">
+                <div class="produto-header">
+                    <label class="checkbox-label">
+                        <input type="radio" id="dlaNbAgua" name="produto" value="DLA NB - Água">
+                        <span class="produto-titulo">DLA NB — Água</span>
+                    </label>
+                </div>
+                <p class="produto-desc">Somente rádio DLA NB para água (sem medidor)</p>
+                <div class="form-group" id="qtdDlaNbAgua" style="display: none;">
+                    <label>Quantidade:</label>
+                    <input type="number" class="form-select" min="0" value="0">
+                </div>
+            </div>
+
+            <!-- DLA NB - Água com Medidor -->
+            <div class="produto-card">
+                <div class="produto-header">
+                    <label class="checkbox-label">
+                        <input type="radio" id="dlaNbAguaMedidor" name="produto" value="DLA NB - Água com Medidor">
+                        <span class="produto-titulo">DLA NB — Água com Medidor</span>
+                    </label>
+                </div>
+                <p class="produto-desc">Rádio DLA NB + medidor de água</p>
+                <div id="opcoesAguaMedidor" style="display: none;">
+                    <div class="form-group">
+                        <label>Modelo:</label>
+                        <input type="text" id="modeloAguaMedidor" class="form-select" placeholder="Informar modelo do medidor">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantidade:</label>
+                        <input type="number" class="form-select" min="0" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Ingestão de Dados:</label>
+                <div class="checkbox-container">
+                    <label class="checkbox-label"><input type="radio" name="ingestao" value="APIS Aepio" id="ingestaoAPI"> API Aepio</label>
+                    <label class="checkbox-label"><input type="radio" name="ingestao" value="Plataforma" id="ingestaoPlataforma"> Plataforma</label>
+                    <label class="checkbox-label"><input type="radio" name="ingestao" value="Servidor Próprio" id="ingestaoServidor"> Servidor Próprio</label>
+                </div>
+            </div>
+
+            <div class="form-group" id="servidorSection" style="display: none;">
+                <label>Seu IP:</label>
+                <input type="text" id="seuIP" class="form-select" placeholder="Digite o IP">
+            </div>
+
+            <div class="form-group" id="portSection" style="display: none;">
+                <label>Sua Port:</label>
+                <input type="text" id="suaPort" class="form-select" placeholder="Digite a porta">
+            </div>
+
+            <div class="form-group" id="dominioSection" style="display: none;">
+                <label>Seu Domínio:</label>
+                <input type="text" id="seuDominio" class="form-select" placeholder="Digite o domínio">
+            </div>
+        </form>
+
+        <!-- Resumo da Solicitação -->
+        <div id="resumoSection" style="display: none;">
+            <div class="section-title">RESUMO DA SOLICITAÇÃO</div>
+            <div class="resumo-box">
+                <div class="resumo-item">
+                    <span class="resumo-label">Cliente</span>
+                    <span class="resumo-valor" id="resumoCliente"></span>
+                </div>
+                <div id="resumoProdutos"></div>
+                <div class="resumo-item">
+                    <span class="resumo-label">Recebimento</span>
+                    <span class="resumo-valor" id="resumoRecebimento"></span>
+                </div>
+            </div>
+            <button type="button" class="btn-primary" onclick="exportarExcel()">📊 Gerar Excel</button>
+        </div>
+
+        <div class="button-group" id="botoesIniciais">
+            <button type="button" class="btn-primary" onclick="gerarResumo()">Gerar Resumo</button>
+            <button type="button" class="btn-secondary" onclick="limparFormulario()">Limpar Formulário</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
